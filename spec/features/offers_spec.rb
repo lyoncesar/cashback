@@ -13,7 +13,7 @@ RSpec.describe "Offers", type: :feature do
     end
   end
 
-  context 'quando cria uma nova ofera' do
+  context 'quando cria uma nova oferta' do
     it 'exibe o formulário para criação de oferta' do
       visit new_offer_path
 
@@ -47,6 +47,37 @@ RSpec.describe "Offers", type: :feature do
           'Advertiser name is too short (minimum is 3 characters)'
         )
       end
+    end
+  end
+
+  context 'quando edita uma oferta' do
+    let(:offer) { create(:offer) }
+
+    it 'exibe o formulário de edição' do
+      visit edit_offer_path(offer)
+
+      expect(page).to have_content("Edit offer #{offer.advertiser_name}")
+    end
+
+    it 'retorna para a lista de ofertas' do
+      visit edit_offer_path(offer)
+      fill_in 'Description', with: '15% off'
+
+      click_button 'Submit'
+
+      expect(page.current_path).to eq(offers_path)
+    end
+
+    it 'exibe mensagem de erro quando existe' do
+      visit edit_offer_path(offer)
+      fill_in 'Advertiser name', with: nil
+
+      click_button 'Submit'
+
+      expect(page).to have_content([
+        "Advertiser name can't be blank",
+        "Advertiser name is too short (minimum is 3 characters)"
+      ])
     end
   end
  end

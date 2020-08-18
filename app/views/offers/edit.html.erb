@@ -1,0 +1,7 @@
+<h1>Edit offer <%= @offer.advertiser_name %></h1>
+
+<div>
+  <%= link_to 'Back to offers', offers_path %>
+</div>
+
+<%= render 'form', locals: {offer: @offer} %>

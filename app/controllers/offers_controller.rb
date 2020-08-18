@@ -1,4 +1,6 @@
 class OffersController < ApplicationController
+  before_action :current_offer, only: %w[edit update]
+
   def index
     @offers = Offer.all
   end
@@ -7,19 +9,36 @@ class OffersController < ApplicationController
     @offer = Offer.new
   end
 
+  def edit
+  end
+
   def create
     @offer = Offer.new(offer_params)
 
     if @offer.save
-      flash['success'] = "The offer #{@offer.advertiser_name} have been created with success."
+      flash['success'] = "The offer #{@offer.advertiser_name} has been created with success."
       redirect_to offers_path
     else
       flash['error'] = @offer.errors.full_messages
-      render new_offer_path
+      render :new
+    end
+  end
+
+  def update
+    if @offer.update(offer_params)
+      flash[:success] = "The offer #{@offer.advertiser_name} has been updated."
+      redirect_to offers_path
+    else
+      flash[:error] = @offer.errors.full_messages
+      render :edit
     end
   end
 
   private
+
+  def current_offer
+    @offer = Offer.find(params[:id])
+  end
 
   def offer_params
     params.require(:offer).permit(

@@ -1,0 +1,51 @@
+<%= form_for @offer do |f| %>
+  <div>
+    <div>
+      <%= f.label :advertiser_name, 'Advertiser name'  %>
+    </div>
+    <div>
+      <%= f.text_field :advertiser_name %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= f.label :url, 'URL' %>
+    </div>
+    <div>
+      <%= f.text_field :url %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= f.label :description, 'Description' %>
+    </div>
+    <div>
+      <%= f.text_area :description %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= f.label :starts_at, 'Starts at' %>
+    </div>
+    <div>
+      <%= f.text_field :starts_at %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= f.label :ends_at, 'Ends at' %>
+    </div>
+    <div>
+      <%= f.text_field :ends_at %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <%= f.check_box :premium %>
+      <%= f.label :premium, 'Premium' %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit 'Submit' %>
+  </div>
+<% end %>
