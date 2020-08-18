@@ -35,6 +35,7 @@ RSpec.describe Offer, type: :model do
           offer.save
           expect(offer.errors.full_messages).to eq([
             "Advertiser name can't be blank",
+            "Advertiser name is too short (minimum is 3 characters)",
             "Url can't be blank",
             "Url is invalid",
             "Description can't be blank",

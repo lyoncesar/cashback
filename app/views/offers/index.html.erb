@@ -1,6 +1,15 @@
 <h1>Offers</h1>
 
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
+
 <table>
+  <div>
+    <%= link_to 'New offer', new_offer_path %>
+  </div>
   <thead>
     <tr>
       <th>id</th>
