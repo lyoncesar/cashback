@@ -1,0 +1,28 @@
+<h1>Offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>url</th>
+      <th>status</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <th><%= offer.id %></th>
+        <th><%= offer.advertiser_name %></th>
+        <th><%= offer.url %></th>
+        <th><%= offer.state %></th>
+        <th>
+          [<%= link_to 'edit', edit_offer_path(offer) %>]
+          [<%= link_to "#{offer.state}",  offer_path(offer), method: :update %>]
+          [<%= link_to 'destroy', offer_path(offer), method: :delete %>]
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
