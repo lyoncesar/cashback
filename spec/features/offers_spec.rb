@@ -80,4 +80,43 @@ RSpec.describe "Offers", type: :feature do
       ])
     end
   end
+
+  context 'quando remove uma oferta' do
+    before do
+      create(:offer)
+    end
+
+    it 'exibe uma mensagem de confirmação na listagem de ofertas' do
+      visit offers_path
+      find(:xpath, '/html/body/table/tbody/tr[1]/th[5]/a[3]').click
+
+      expect(page).to have_content('The offer been destroyed')
+    end
+  end
+
+  context 'quando desabilita uma oferta' do
+    before do
+      create(:offer, advertiser_name: 'Facebook', state: 'enabled')
+    end
+
+    it 'retorna uma mensagem de confirmação' do
+      visit offers_path
+      find(:xpath, '/html/body/table/tbody/tr[1]/th[5]/a[2]').click
+
+      expect(page).to have_content('The offer Facebook been updated')
+    end
+  end
+
+  context 'quando habilita uma oferta' do
+    before do
+      create(:offer, advertiser_name: 'Facebook', state: 'disabled')
+    end
+
+    it 'retorna uma mensagem de confirmação' do
+      visit offers_path
+      find(:xpath, '/html/body/table/tbody/tr[1]/th[5]/a[2]').click
+
+      expect(page).to have_content('The offer Facebook been updated')
+    end
+  end
  end

@@ -22,7 +22,7 @@
         <th><%= offer.state %></th>
         <th>
           [<%= link_to 'edit', edit_offer_path(offer) %>]
-          [<%= link_to "#{offer.state}",  offer_path(offer), method: :update %>]
+          [<%= link_to offer_new_state_option(offer.state), [offer, { offer: {state: offer_new_state(offer.state)} }], method: :patch %>]
           [<%= link_to 'destroy', offer_path(offer), method: :delete %>]
         </th>
       </tr>
