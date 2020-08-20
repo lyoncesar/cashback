@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :current_offer, only: %w[edit update destroy enable]
+  before_action :current_offer, only: %w[edit update destroy]
 
   def index
     @offers = Offer.all
@@ -43,7 +43,7 @@ class OffersController < ApplicationController
   private
 
   def current_offer
-    @offer = Offer.find(params[:id])
+    @offer = Offer.find(params.dig(:id))
   end
 
   def offer_params
