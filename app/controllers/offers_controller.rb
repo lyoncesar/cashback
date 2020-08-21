@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   before_action :current_offer, only: %w[edit update destroy]
+  before_action :authorize_admin
 
   def index
     @offers = Offer.all
@@ -16,8 +17,7 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
 
     if @offer.save
-      flash['success'] = "The offer #{@offer.advertiser_name} been created with success."
-      redirect_to offers_path
+      redirect_to offers_path, notice: "The offer #{@offer.advertiser_name} been created."
     else
       flash.now['error'] = @offer.errors.full_messages
       render :new
@@ -26,21 +26,25 @@ class OffersController < ApplicationController
 
   def update
     if @offer.update(offer_params)
-      flash[:success] = "The offer #{@offer.advertiser_name} been updated."
-      redirect_to offers_path
+      redirect_to offers_path, notice: "The offer #{@offer.advertiser_name} been updated."
     else
-      flash.now[:error] = @offer.errors.full_messages
+      flash.now['error'] = @offer.errors.full_messages
       render :edit
     end
   end
 
   def destroy
     @offer.destroy
-    flash[:success] = "The offer been destroyed"
-    redirect_to offers_path
+    redirect_to offers_path, notice: "The offer been deleted."
   end
 
   private
+
+  def authorize_admin
+    return if admin_user?
+
+    redirect_to root_path, notice: 'This page only accessible by admin users.'
+  end
 
   def current_offer
     @offer = Offer.find(params.dig(:id))
