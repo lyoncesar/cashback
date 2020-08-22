@@ -3,8 +3,18 @@ FactoryBot.define do
     advertiser_name { Faker::Company.name }
     url { Faker::Internet.url }
     premium { false }
-    starts_at { Time.zone.now }
+    starts_at { 1.day.ago }
     ends_at { nil }
     description { Faker::Lorem.characters(number: 50) }
+  end
+
+  factory :offer_enabled, class: Offer do
+    advertiser_name { Faker::Company.name }
+    url { Faker::Internet.url }
+    premium { false }
+    starts_at { Date.today }
+    ends_at { nil }
+    description { Faker::Lorem.characters(number: 50) }
+    state { :enabled }
   end
 end
