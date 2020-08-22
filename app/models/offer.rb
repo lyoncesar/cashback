@@ -23,7 +23,7 @@ class Offer < ApplicationRecord
 
   scope :may_enable, -> do
     offers = []
-    disabled.map do |offer|
+    disabled.find_each do |offer|
       offers << offer if offer.may_enable?
     end
 
