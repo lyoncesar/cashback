@@ -21,6 +21,26 @@ class Offer < ApplicationRecord
     end
   end
 
+  scope :may_enable, -> do
+    offers = []
+    disabled.map do |offer|
+      offers << offer if offer.may_enable?
+    end
+
+    offers
+  end
+
+  scope :may_disable, -> do
+    offers = []
+    enabled.find_each do |offer|
+      offers << offer if offer.may_disable?
+    end
+
+    offers
+  end
+
+  private
+
   def can_enable?
     state_policy.can_enable?
   end

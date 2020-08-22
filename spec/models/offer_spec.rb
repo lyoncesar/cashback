@@ -195,6 +195,8 @@ RSpec.describe Offer, type: :model do
           let(:offer) { create(:offer) }
 
           it 'rejeita a atualização' do
+            offer.ends_at = 1.day.ago
+
             expect(offer.may_enable?).to be_falsey
           end
         end
