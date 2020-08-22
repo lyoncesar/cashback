@@ -1,5 +1,11 @@
 namespace :offer_update_state do
-  desc "Schedule task to change Offer state to enabled"
+  desc "Update Offers state"
+  task process: :environment do
+    Rake::Task["offer_update_state:enable"].invoke
+    Rake::Task["offer_update_state:disable"].invoke
+  end
+
+  desc "Update Offer state to enabled"
   task enable: :environment do
     Offer.may_enable.each do |offer|
       begin
@@ -11,7 +17,7 @@ namespace :offer_update_state do
     end
   end
 
-  desc "Schedule task to change Offer state to enabled"
+  desc "Update Offer state to enabled"
   task disable: :environment do
     Offer.may_disable.each do |offer|
       begin
@@ -23,7 +29,9 @@ namespace :offer_update_state do
     end
   end
 
+  private
+
   def update_state_log
-    Logger.new("#{Rails.root}/log/update_state_#{Rails.env}.log")
+    Logger.new("#{Rails.root}/log/offer_update_state_#{Rails.env}.log")
   end
 end
