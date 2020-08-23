@@ -5,7 +5,6 @@ ruby '2.6.0'
 
 gem 'aasm'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
