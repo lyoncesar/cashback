@@ -4,17 +4,21 @@ default: &default
   timeout: 5000
   encoding: unicode
   username: cashback
-  password: <%= ENV['CASHBACK_DATABASE_PASSWORD'] %>
-  host: localhost
+  password: cashback
+
 
 development:
   <<: *default
   database: cashback/development
+  host: localhost
 
 test:
   <<: *default
   database: cashback/test
+  host: localhost
 
 production:
   <<: *default
   database: cashback/production
+  username: cashback
+  password: <%= ENV['CASHBACK_DATABASE_PASSWORD'] %>
