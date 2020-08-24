@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :current_offer, only: %w[edit update destroy]
+  before_action :current_offer, only: %w[edit destroy]
   before_action :authorize_admin
 
   def index
@@ -25,9 +25,13 @@ class OffersController < ApplicationController
   end
 
   def update
-    if @offer.update(offer_params)
-      redirect_to offers_path, notice: "The offer #{@offer.advertiser_name} been updated."
+    update = OfferUpdate.new(params[:id], offer_params, admin_user?)
+
+    if update.call
+      redirect_to offers_path,
+        notice: "The offer #{update.current_offer.advertiser_name} been updated."
     else
+      @offer = update.current_offer
       flash.now['error'] = @offer.errors.full_messages
       render :edit
     end
