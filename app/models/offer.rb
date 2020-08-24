@@ -1,6 +1,8 @@
 class Offer < ApplicationRecord
   include AASM
 
+  attr_accessor :current_user_admin
+
   enum state: {disabled: 0, enabled: 1}
 
   validates :advertiser_name, :url, :description, :starts_at, presence: true
@@ -50,7 +52,7 @@ class Offer < ApplicationRecord
   end
 
   def state_policy
-    OfferStatePolicy.new(starts_at, ends_at)
+    OfferStatePolicy.new(starts_at, ends_at, current_user_admin)
   end
 end
 

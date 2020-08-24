@@ -162,7 +162,7 @@ RSpec.describe Offer, type: :model do
           it 'rejeita a atualização' do
             offer.ends_at = Date.today
 
-            expect(offer.may_disable?).to be_falsey
+            expect(offer.may_disable?).to be_truthy
           end
         end
 

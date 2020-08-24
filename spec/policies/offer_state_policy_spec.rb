@@ -16,17 +16,17 @@ RSpec.describe OfferStatePolicy do
       end
 
       context 'e o encerramento é hoje' do
-        it 'retorna verdadeiro' do
+        it 'retorna falso' do
           offer.starts_at = 0.day.from_now
           offer.ends_at = 0.day.from_now
           policy = described_class.new(offer.starts_at, offer.ends_at)
 
-          expect(policy.can_enable?).to be_truthy
+          expect(policy.can_enable?).to be_falsey
         end
       end
 
       context 'e o encerramento era ontem' do
-        it 'retorna false' do
+        it 'retorna falso' do
           offer.starts_at = 0.day.from_now
           offer.ends_at = 1.day.ago
           policy = described_class.new(offer.starts_at, offer.ends_at)
@@ -121,17 +121,7 @@ RSpec.describe OfferStatePolicy do
           offer.ends_at = 0.day.from_now
           policy = described_class.new(offer.starts_at, offer.ends_at)
 
-          expect(policy.can_disable?).to be_falsey
-        end
-      end
-
-      context 'e a data de início é hoje' do
-        it 'retorna falso' do
-          offer.starts_at = 0.day.from_now
-          offer.ends_at = 0.day.from_now
-          policy = described_class.new(offer.starts_at, offer.ends_at)
-
-          expect(policy.can_disable?).to be_falsey
+          expect(policy.can_disable?).to be_truthy
         end
       end
     end
