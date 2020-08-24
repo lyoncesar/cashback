@@ -45,7 +45,7 @@ class OffersController < ApplicationController
   private
 
   def authorize_admin
-    return if admin_user?
+    return if current_user.admin?
 
     redirect_to root_path, notice: 'This page only accessible by admin users.'
   end
