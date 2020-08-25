@@ -11,7 +11,7 @@ module HomeHelper
       end
     else
       content_tag(:li, class: "nav-item") do
-        link_to "Registrar-se", new_user_registration_path, :class => 'nav-link text-light nav-righ'
+        link_to "Register", new_user_registration_path, :class => 'nav-link text-light nav-righ'
       end
     end
   end

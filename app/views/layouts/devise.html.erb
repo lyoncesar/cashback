@@ -10,22 +10,8 @@
   </head>
 
   <body class="app-body">
-
-    <header>
-      <%= render 'shared/navigation' %>
-    </header>
-
-    <main role="main">
-      <div class="container">
-        <%= render 'shared/messages' %>
-        <%= yield %>
-      </div>
-    </main>
-
-    <footer class="page-footer">
-      <%= render 'shared/footer' %>
-    </footer>
-
+    <%= render 'shared/messages' %>
+    <%= yield %>
   </body>
 
 </html>
