@@ -22,11 +22,11 @@
           <th scope="row"><%= offer.id %></th>
           <td><%= offer.advertiser_name %></td>
           <td><%= offer.url %></td>
-          <td><%= offer.state %></td>
+          <td><%= offer.state.titleize %></td>
           <td>
-            [<%= link_to 'edit', edit_offer_path(offer) %>]
-            [<%= link_to offer_new_state_option(offer.state), [offer, { offer: {state: offer_new_state(offer.state)} }], method: :patch %>]
-            [<%= link_to 'destroy', offer_path(offer), method: :delete %>]
+            <%= link_to 'Edit', edit_offer_path(offer) %> |
+            <%= link_to offer_new_state_option(offer.state), [offer, { offer: {state: offer_new_state(offer.state)} }], method: :patch %> |
+            <%= link_to 'Destroy', offer_path(offer), method: :delete %>
           </td>
         </tr>
       <% end %>

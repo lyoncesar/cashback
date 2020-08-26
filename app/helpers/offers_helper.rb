@@ -1,13 +1,13 @@
 module OffersHelper
   def offer_new_state(state)
-    return 'disabled' if state == 'enabled'
+    return 'Disabled' if state == 'enabled'
 
-    'enabled'
+    'Enabled'
   end
 
   def offer_new_state_option(state)
-    return 'disable' if state == 'enabled'
+    return 'Disable' if state == 'enabled'
 
-    'enable'
+    'Enable'
   end
 end
