@@ -3,7 +3,7 @@ class OffersController < ApplicationController
   before_action :authorize_admin
 
   def index
-    @offers = Offer.all
+    @offers = Offer.order_state
   end
 
   def new
