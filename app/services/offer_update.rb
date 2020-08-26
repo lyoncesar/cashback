@@ -29,7 +29,7 @@ class OfferUpdate
 
   def update_state
     current_offer.current_user_admin = admin_user
-    return current_offer.enable! if params.dig(:state) == 'enabled'
+    return current_offer.enable! if params.dig(:state).downcase == 'enabled'
 
     current_offer.disable!
   end
