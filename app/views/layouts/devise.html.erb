@@ -10,8 +10,12 @@
   </head>
 
   <body class="app-body">
-    <%= render 'shared/messages' %>
-    <%= yield %>
+    <div class="row mx-auto text-center align-items-center" style="width: 300px; height: 100vh">
+      <div class="form-signin col-md-12">
+        <%= render 'shared/messages' %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 
 </html>

@@ -1,15 +1,14 @@
-<h2>Forgot your password?</h2>
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= image_tag('logo.png', :class => 'mb-4', :width => '72', :height => '72') %>
+  <h2 class="h3 mb-4 font-weight-normal">Forgot your password?</h2>
+
+  <%= f.label :email, class: 'sr-only' %>
+  <%= f.email_field :email, placeholder: 'Email', autofocus: true, autocomplete: "email", class: 'form-control' %>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send reset password", class: 'btn btn-lg btn-primary btn-block my-2' %>
   </div>
 <% end %>
 

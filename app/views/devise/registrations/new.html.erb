@@ -1,26 +1,22 @@
-<div class="row mx-auto text-center align-items-center" style="width: 300px; height: 100vh">
-  <div class="form-signin col-md-12">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-      <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-      <%= image_tag('logo.png', class: 'mb-4', width: '72', height: '72') %>
-      <h2 class="h3 mb-4 font-weight-normal">Sign up</h2>
+  <%= image_tag('logo.png', class: 'mb-4', width: '72', height: '72') %>
+  <h2 class="h3 mb-4 font-weight-normal">Sign up</h2>
 
-      <%= f.label :email, class: 'sr-only' %>
-      <%= f.email_field :email, placeholder: 'Email', autofocus: true, autocomplete: "email", class: 'form-control my-2' %>
+  <%= f.label :email, class: 'sr-only' %>
+  <%= f.email_field :email, placeholder: 'Email', autofocus: true, autocomplete: "email", class: 'form-control my-2' %>
 
-      <%= f.label :password, class: 'sr-only' %>
-      <%= f.password_field :password, placeholder: minimum_password_length(@minimum_password_legth), autocomplete: "new-password", class: 'form-control my-2' %>
+  <%= f.label :password, class: 'sr-only' %>
+  <%= f.password_field :password, placeholder: minimum_password_length(@minimum_password_legth), autocomplete: "new-password", class: 'form-control my-2' %>
 
-      <%= f.label :password_confirmation, class: 'sr-only' %>
-      <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', autocomplete: "new-password", class: 'form-control my-2' %>
+  <%= f.label :password_confirmation, class: 'sr-only' %>
+  <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', autocomplete: "new-password", class: 'form-control my-2' %>
 
-      <div class="actions">
-        <%= f.submit "Sign up", class: 'btn btn-lg btn-primary btn-block my-3' %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'btn btn-lg btn-primary btn-block my-3' %>
   </div>
-</div>
+<% end %>
+
+<%= render "devise/shared/links" %>
