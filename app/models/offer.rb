@@ -41,6 +41,14 @@ class Offer < ApplicationRecord
     offers
   end
 
+  scope :order_enabled_premium, -> do
+    enabled.order(premium: :desc, id: :asc)
+  end
+
+  scope :order_state, -> do
+    order(state: :desc, id: :asc)
+  end
+
   private
 
   def can_enable?
