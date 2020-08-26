@@ -10,7 +10,7 @@ RSpec.describe 'offer_update_state:process', type: :task do
         5.times {create(:offer)}
       end
 
-      let(:offers_dont_enable) do
+      let(:offers_cant_enable) do
         5.times do
           create(:offer, starts_at: 1.day.ago, ends_at: 1.day.ago)
         end
@@ -22,17 +22,17 @@ RSpec.describe 'offer_update_state:process', type: :task do
         end
       end
 
-      let(:offers_dont_disable) do
+      let(:offers_cant_disable) do
         5.times do
-          create(:offer_dont_disable)
+          create(:offer_cant_disable)
         end
       end
 
       before do
         offers_may_enable
-        offers_dont_enable
+        offers_cant_enable
         offers_may_disable
-        offers_dont_disable
+        offers_cant_disable
 
         Rake::Task["offer_update_state:enable"].reenable
         Rake::Task["offer_update_state:disable"].reenable
