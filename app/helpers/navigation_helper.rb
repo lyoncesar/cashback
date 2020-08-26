@@ -32,7 +32,13 @@ module NavigationHelper
   def user_signed_in_home
     if user_signed_in?
       content_tag(:div) do
-        link_to "Home", root_path, :class => 'navbar-brand text-light'
+        link_to(
+          image_tag('logo.png',
+                    :class => 'row align-self-center mb-2',
+                    :width => '62',
+                    :height => '62'
+                   ),
+          root_path, :class => 'navbar-brand text-light')
       end
     end
   end
