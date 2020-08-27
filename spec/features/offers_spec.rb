@@ -17,7 +17,7 @@ RSpec.describe "Offers", type: :feature do
 
           expect(page).to have_content('Offers')
           expect(page).to have_xpath(
-            "/html/body/main/div[@class='container']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr",
+            "/html/body/main/div[@class='container container-height']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr",
             :count => 3
           )
         end
@@ -29,7 +29,7 @@ RSpec.describe "Offers", type: :feature do
 
           expect(page).to have_content('New Offer')
           expect(page).to have_xpath(
-            "/html/body/main/div[@class='container']/div[@class='rounded p-5 bg-light']/div/form[@id='new_offer']"
+            "/html/body/main/div[@class='container container-height']/div[@class='rounded p-5 bg-light']/div/form[@id='new_offer']"
           )
         end
 
@@ -99,7 +99,7 @@ RSpec.describe "Offers", type: :feature do
           visit offers_path
           find(
             :xpath,
-            "/html/body/main/div[@class='container']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr[1]/td[4]/a[3]"
+            "/html/body/main/div[@class='container container-height']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr[1]/td[4]/a[3]"
           ).click
 
           expect(page).to have_content('The offer been deleted')
@@ -115,7 +115,7 @@ RSpec.describe "Offers", type: :feature do
           visit offers_path
           find(
             :xpath,
-            "/html/body/main/div[@class='container']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr[1]/td[4]/a[3]"
+            "/html/body/main/div[@class='container container-height']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr[1]/td[4]/a[3]"
           ).click
 
           expect(page).to have_content('The offer been deleted')
@@ -131,7 +131,7 @@ RSpec.describe "Offers", type: :feature do
           visit offers_path
           find(
             :xpath,
-            "/html/body/main/div[@class='container']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr[1]/td[4]/a[2]"
+            "/html/body/main/div[@class='container container-height']/div/div[@class='table-responsive']/table[@class='table table-bordered']/tbody/tr[1]/td[4]/a[2]"
           ).click
 
           expect(page).to have_content('The offer Facebook been updated')
