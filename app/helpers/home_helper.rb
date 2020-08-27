@@ -6,4 +6,12 @@ module HomeHelper
       end
     end
   end
+
+  def offer_premium(offer_premium)
+    if offer_premium
+      content_tag(:div, class: 'text-right') do
+        content_tag(:span, 'Premium', class: 'badge badge-danger badge-premium border border-light rounded-pill position-absolute  shadow')
+      end
+    end
+  end
 end
