@@ -10,9 +10,9 @@
         <div class="card rounded w-100 p-3">
            <%= offer_premium(offer.premium) %>
           <div class="card-body text-center">
-            <h4 class="card-title"><%= offer.advertiser_name %></h4>
+            <h4 class="card-title my-2"><%= offer.advertiser_name %></h4>
             <p class "card-text"></p>
-            <%= link_to 'Shop Now', offer.url, class: 'btn btn-sm btn-primary w-50 p-3' %>
+            <%= link_to 'Shop Now', offer.url, class: 'btn-hover-green btn btn-sm btn-primary w-50 p-3', target: '_blank' %>
           </div>
         </div>
       </div>
