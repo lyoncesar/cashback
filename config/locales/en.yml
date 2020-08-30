@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  home:
+    todays_offers: "Todays Offers"
+    shop_now: 'Shop Now'
+    offers_admin: 'Offers admin'
+    premium: 'Premium'
+      
