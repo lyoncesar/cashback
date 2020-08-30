@@ -7,10 +7,8 @@ class OfferStatePolicy
 
   def can_enable?
     return true if admin_user
+    return true if ends_at_blank_and_todays_greater_or_equal_starts_at
 
-    if ends_at.blank?
-      return true if today >= starts_at
-    end
     return true if todays_greater_or_equal_start_and_ends_at_blank
     return true if todays_greater_or_equal_start_at_and_todays_less_ends_at
 
@@ -19,10 +17,7 @@ class OfferStatePolicy
 
   def can_disable?
     return true if admin_user
-
-    if ends_at.blank?
-      return false if today >= starts_at
-    end
+    return false if ends_at_blank_and_todays_greater_or_equal_starts_at
 
     return true if starts_blank_or_todays_greater_or_equal_starts_at
     return true if todays_less_or_equals_ends_at
@@ -52,6 +47,14 @@ class OfferStatePolicy
 
   def todays_less_or_equals_ends_at
     today >= ends_at
+  end
+
+  def ends_at_blank_and_todays_greater_or_equal_starts_at
+    if ends_at.blank?
+      return true if today >= starts_at
+    end
+
+    false
   end
 
   def today
