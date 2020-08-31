@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  actions:
+    back: 'Back'
   home:
     todays_offers: 'Todays Offers'
     shop_now: 'Shop Now'
@@ -55,7 +57,14 @@ en:
     submit: 'Submit'
   users:
     edit: 'Edit user'
+    update: 'Update'
     sign_up: 'Sign up'
+    email: 'Email'
+    password: 'Password'
+    current_password: 'Current password'
+    password_min_length: "Password %{min_length} minimum"
+    password_confirmation: 'Password confirmation'
+    cancel_account: 'Cancel my account'
   sessions:
     login: 'Sign in'
     logout: 'Logout'
