@@ -1,13 +1,13 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <%= image_tag('logo.png', :class => 'mb-4', :width => '72', :height => '72') %>
-  <h2 class="h3 mb-4 font-weight-normal">Log in</h2>
+  <%= image_tag('logo.png', class: 'mb-4', width: '72', height: '72') %>
+  <h2 class="h3 mb-4 font-weight-normal"><%= t('sessions.login') %></h2>
 
-  <%= f.label :email, :class => 'sr-only' %>
-  <%= f.email_field :email, placeholder: 'Email', autofocus: true, autocomplete: "email", class: 'form-control my-2' %>
+  <%= f.label :email, class: 'sr-only' %>
+  <%= f.email_field :email, placeholder: t('users.email'), autofocus: true, autocomplete: "email", class: 'form-control my-2' %>
 
-  <%= f.label :password, :class => 'sr-only' %>
-  <%= f.password_field :password, placeholder: 'Password', autocomplete: "current-password", class: 'form-control my-2' %>
+  <%= f.label :password, class: 'sr-only' %>
+  <%= f.password_field :password, placeholder: t('users.password'), autocomplete: "current-password", class: 'form-control my-2' %>
 
   <% if devise_mapping.rememberable? %>
     <div class="checkbox mt-2">
@@ -17,7 +17,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in", class: 'btn btn-lg btn-primary btn-block my-2' %>
+    <%= f.submit t('sessions.login'), class: 'btn btn-lg btn-primary btn-block my-2' %>
   </div>
 <% end %>
 
