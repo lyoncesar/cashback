@@ -50,6 +50,9 @@ en:
     enabled: 'Enabled'
     disable: 'Disable'
     disabled: 'Disabled'
+    new_offer: 'New offer'
+    admin_offers: 'Admin offers'
+    submit: 'Submit'
 
     
       
