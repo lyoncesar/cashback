@@ -2,13 +2,13 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <%= image_tag('logo.png', :class => 'mb-4', :width => '72', :height => '72') %>
-  <h2 class="h3 mb-4 font-weight-normal">Forgot your password?</h2>
+  <h2 class="h3 mb-4 font-weight-normal"><%= t('users.forgot_password') %></h2>
 
   <%= f.label :email, class: 'sr-only' %>
-  <%= f.email_field :email, placeholder: 'Email', autofocus: true, autocomplete: "email", class: 'form-control' %>
+  <%= f.email_field :email, placeholder: t('users.email'), autofocus: true, autocomplete: "email", class: 'form-control' %>
 
   <div class="actions">
-    <%= f.submit "Send reset password", class: 'btn btn-lg btn-primary btn-block my-2' %>
+    <%= f.submit t('users.send_reset_password'), class: 'btn btn-lg btn-primary btn-block my-2' %>
   </div>
 <% end %>
 

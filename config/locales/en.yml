@@ -65,6 +65,8 @@ en:
     password_min_length: "Password %{min_length} minimum"
     password_confirmation: 'Password confirmation'
     cancel_account: 'Cancel my account'
+    forgot_password: 'Forgot your password?'
+    send_reset_password: 'Send reset password'
   sessions:
     login: 'Sign in'
     logout: 'Logout'
