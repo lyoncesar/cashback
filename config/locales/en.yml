@@ -59,6 +59,8 @@ en:
   sessions:
     login: 'Sign in'
     logout: 'Logout'
+  footer:
+    think: 'Code is life'
 
     
       
