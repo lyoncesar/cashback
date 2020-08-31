@@ -53,6 +53,12 @@ en:
     new_offer: 'New offer'
     admin_offers: 'Admin offers'
     submit: 'Submit'
+  users:
+    edit: 'Edit user'
+    sign_up: 'Sign up'
+  sessions:
+    login: 'Sign in'
+    logout: 'Logout'
 
     
       
