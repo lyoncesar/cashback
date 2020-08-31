@@ -1,20 +1,20 @@
 <div>
   <div class="mt-3 mb-4">
-    <h1>Offers</h1>
+    <h1><%= t('offers.title') %></h1>
   </div>
 
   <div class="table-responsive">
     <table class="table table-bordered">
       <div>
-        <%= link_to 'New offer', new_offer_path, :class => 'btn btn-link float-right' %>
+        <%= link_to t('offers.new'), new_offer_path, class: 'btn btn-link float-right' %>
       </div>
       <thead class="thead-dark">
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">name</th>
-          <th scope="col">url</th>
-          <th scope="col">status</th>
-          <th scope="col">actions</th>
+          <th scope="col"><%= t('offers.id') %></th>
+          <th scope="col"><%= t('offers.name') %></th>
+          <th scope="col"><%= t('offers.url')  %></th>
+          <th scope="col"><%= t('offers.state') %></th>
+          <th scope="col"><%= t('offers.actions') %></th>
         </tr>
       </thead>
       <tbody>
@@ -25,9 +25,9 @@
             <td><%= offer.url %></td>
             <td><%= offer.state.titleize %></td>
             <td>
-              <%= link_to 'Edit', edit_offer_path(offer) %> |
+              <%= link_to t('offers.edit'), edit_offer_path(offer) %> |
               <%= link_to offer_new_state_option(offer.state), [offer, { offer: {state: offer_new_state(offer.state)} }], method: :patch %> |
-              <%= link_to 'Destroy', offer_path(offer), method: :delete %>
+              <%= link_to t('offers.destroy'), offer_path(offer), method: :delete, data: {confirm: t('offers.destroy_message')} %>
             </td>
           </tr>
         <% end %>

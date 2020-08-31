@@ -30,10 +30,27 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   home:
-    todays_offers: "Todays Offers"
+    todays_offers: 'Todays Offers'
     shop_now: 'Shop Now'
     offers_admin: 'Offers admin'
     premium: 'Premium'
+  offers:
+    title: 'Offers'
+    new: 'New offer'
+    id: 'Id'
+    name: 'Name'
+    url: 'Url'
+    state: 'Status'
+    actions: 'Options' 
+    edit: 'Edit'
+    destroy: 'Destroy'
+    destroy_message: "Are you sure?\r\nThis action can't be undone."
+    enable: 'Enable'
+    enabled: 'Enabled'
+    disable: 'Disable'
+    disabled: 'Disabled'
+
+    
+      
       
