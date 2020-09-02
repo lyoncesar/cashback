@@ -27,7 +27,7 @@ RSpec.describe "Offers", type: :feature do
         it 'exibe o formulário para criação de oferta' do
           visit new_offer_path
 
-          expect(page).to have_content('New Offer')
+          expect(page).to have_content('New offer')
           expect(page).to have_xpath(
             "/html/body/main/div[@class='container container-height']/div[@class='rounded p-5 bg-light']/div/form[@id='new_offer']"
           )
