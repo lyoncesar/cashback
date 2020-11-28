@@ -1,0 +1,28 @@
+version: '3.5'
+x-default: &default
+  volumes:
+    - .:/app
+  stdin_open: true
+  tty: true
+services:
+  web:
+    <<: *default
+    command: "rails server -b 0.0.0.0 -p 3000 --pid /tmp/rails_server.pid"
+    build: .
+    ports:
+      - 3000:3000
+  assets:
+    <<: *default
+    command: "./bin/webpack-dev-server"
+    image: cashback_web:latest
+    ports:
+      - 3035:3035
+  db:
+    image: postgres:9.6-alpine
+    environment:
+      POSTGRES_USER: cashback
+      POSTGRES_PASSWORD: cashback
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:

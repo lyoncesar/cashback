@@ -9,16 +9,16 @@ default: &default
 
 development:
   <<: *default
-  database: cashback/development
-  host: localhost
+  database: cashback_development
+  host: db
 
 test:
   <<: *default
-  database: cashback/test
-  host: localhost
+  database: cashback_test
+  host: db
 
 production:
   <<: *default
-  database: cashback/production
+  database: cashback_production
   username: cashback
   password: <%= ENV['CASHBACK_DATABASE_PASSWORD'] %>
