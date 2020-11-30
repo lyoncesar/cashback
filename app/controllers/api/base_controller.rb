@@ -1,7 +1,5 @@
 module Api
   class BaseController < ActionController::API
-    include ActionController::MimeResponds
-
     before_action :http_basic_authenticate
 
     def http_basic_authenticate

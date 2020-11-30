@@ -3,7 +3,7 @@ module Api
     class OffersController < Api::BaseController
       def index
         @offers = Offer.order('created_at DESC')
-        render json: {status: 'SUCCESS', message: 'Ofertas carregadas', data: @offers}, status: :ok
+        render json: OfferSerializer.new(Offer.all).serialized_json, status: :ok
       end
     end
   end
